@@ -6,8 +6,8 @@ fn3args:
 
   #movl $0, %eax   
   movl (%edi, %esi), %eax
-  sal 2, %eax # (x+y) / 2
-  imul %edx, %eax
+  sall $2, %eax # (x+y) / 2
+  imull %edx, %eax
 
   retq          # return the area (a+b)*c/2
 
