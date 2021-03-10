@@ -5,8 +5,9 @@ fn3args:
   # edx height third argument
 
   #movl $0, %eax   
-  movl (%edi, %esi), %eax
-  sall $2, %eax # (x+y) / 2
+  movl %edi, %eax
+  addl %esi, %eax
+  sarl $2, %eax # (x+y) / 2 right shift
   imull %edx, %eax
 
   retq          # return the area (a+b)*c/2
