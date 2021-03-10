@@ -19,8 +19,7 @@ fn3args:
   je .L3
   sarl $1, %eax # (x+y) / 2 right shift
   imull %edx, %eax 
-  testl	%eax, %eax
-  je .L3
+  
   retq          # return the area (a+b)*c/2
 
 .L2:
