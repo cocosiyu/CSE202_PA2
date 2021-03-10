@@ -8,7 +8,7 @@ retq
 
 .L1: 
   subl %eax, %esi # esi = esi - eax
-  movl %esi, %eax
+  movl %esi, %eax # eax = y -x
   retq
 
 
