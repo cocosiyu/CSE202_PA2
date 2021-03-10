@@ -4,12 +4,13 @@ fn3args:
   # esi length of parallel side
   # edx height third argument
 
+  
+
   #movl $0, %eax   
   movl %edi, %eax
   addl %esi, %eax
-  sarl $2, %eax # (x+y) / 2 right shift
+  sarl $1, %eax # (x+y) / 2 right shift
   imull %edx, %eax
-
   retq          # return the area (a+b)*c/2
 
 
