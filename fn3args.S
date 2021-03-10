@@ -4,22 +4,25 @@ fn3args:
   # esi length of parallel side
   # edx height third argument
 
-  # if x, y, z are smaller than 0 movl $0, %eax     retq 
+  # check if inputs are 0
   cmpl $0, %edi #check if x is negative
   jns .L2
   cmpl $0, %esi
   jns .L2
   cmpl $0, %edx
-  jns .L2
+  jns .L2 # return 0
 
-  #movl $0, %eax   
-  movl %edi, %eax
-  addl %esi, %eax
-  imull %edx, %eax
+ 
+  movl %edi, %eax # eax = x
+  addl %esi, %eax # eax = x+y
+  testl	%eax, %eax
+  je .L3
   sarl $1, %eax # (x+y) / 2 right shift
+  imull %edx, %eax 
   testl	%eax, %eax
   je .L3
   retq          # return the area (a+b)*c/2
+
 .L2:
   movl $0, %eax   
   retq
